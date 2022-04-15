@@ -1,26 +1,29 @@
 import { Outlet, Link } from "react-router-dom";
+import { Container, Row, Col, Navbar, NavbarBrand, Nav, NavItem } from "reactstrap";
 
 export default function Layout() {
   return (
-    <>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Page1</Link>
-          </li>
-          <li>
-            <Link to="/page2">Page2</Link>
-          </li>
-          <li>
-            <Link to="/page3">Page3</Link>
-          </li>
-          <li>
-            <Link to="/page4">Page4</Link>
-          </li>
-        </ul>
-      </nav>
+    <Container>
+      <Row className="mb-2">
+        <Nav>
+          <NavItem>
+            <Link to="/" className="p-1 text-decoration-none">Page1</Link>
+          </NavItem>
+          <NavItem>
+            <Link to="/page2" className="p-1 text-decoration-none">Page2</Link>
+          </NavItem>
+          <NavItem>
+            <Link to="/page3" className="p-1 text-decoration-none">Page3</Link>
+          </NavItem>
+          <NavItem>
+            <Link to="/page4" className="p-1 text-decoration-none">Page4</Link>
+          </NavItem>
+        </Nav>
+      </Row>
 
-      <Outlet />
-    </>
+      <Row>
+        <Outlet />
+      </Row>
+    </Container>
   )
 };
