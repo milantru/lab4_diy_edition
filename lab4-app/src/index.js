@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import './index.css';
 import Layout from './pages/_layout';
-import Page1 from './pages/page1';
-import Page2 from './pages/page2';
-import Page3 from './pages/page3';
-import Page4 from './pages/page4';
+import Home from './pages/home';
+import PageWithInput from './pages/page-with-input';
+import Incrementor from './pages/incrementor';
+import Decrementor from './pages/decrementor';
 
 class App extends React.Component {
     constructor(props) {
@@ -21,16 +20,18 @@ class App extends React.Component {
             <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Layout />}>
-                    <Route index element={<Page1 />} />
-                    <Route path="page2" element={<Page2 />} />
-                    <Route path="page3" element={
-                        <Page3 
+                    <Route index element={<Home />} />
+                    <Route path="page-with-input" element={<PageWithInput />} />
+                    <Route path="incrementor" element={
+                        <Incrementor 
+                        text="Click me to increment!"
                         value={this.state.counterValue} 
                         handleClick={() => this.setState({counterValue: this.state.counterValue + 1})} 
                         />
                     } />
-                    <Route path="page4" element={
-                        <Page4 
+                    <Route path="decrementor" element={
+                        <Decrementor 
+                        text="Click me to decrement!"
                         value={this.state.counterValue} 
                         handleClick={() => this.setState({counterValue: this.state.counterValue - 1})} 
                         />
