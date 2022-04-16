@@ -1,26 +1,24 @@
 import React from "react";
 import { Button } from 'reactstrap';
+import { CounterContextConsumer } from "./CounterContext";
 
 export default class Counter extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            text: props.text ? props.text : "Click me!",
-        }
-    }
-
     render() {
         return (
-            <div>
-                <label htmlFor="button">{this.props.value}</label><br />
-                
-                <Button 
-                color="primary"
-                size="sm"
-                onClick={() => this.props.handleClick()}
-                className="mt-2"
-                >{this.state.text}</Button>
-            </div>
+            <CounterContextConsumer>
+                {(value) => {
+                    return <div>
+                            <label htmlFor="button">{value.value}</label><br />
+
+                            <Button 
+                            color="primary"
+                            size="sm"
+                            onClick={() => value.handleClick()}
+                            className="mt-2"
+                            >{value.text ? value.text : "Click me!"}</Button>
+                        </div>
+                }}
+            </CounterContextConsumer>
         );
     }
 }

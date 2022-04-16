@@ -7,10 +7,7 @@ export default class Incrementor extends React.Component {
             <div>
                 <h1>Incrementor</h1>
                 
-                <Counter 
-                text={this.props.text} 
-                value={this.props.value} 
-                handleClick={this.props.handleClick} />
+                <Counter />
             </div>
         );
     }
